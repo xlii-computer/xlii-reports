@@ -1,0 +1,22 @@
+name: A buglog report
+description: The report xlii wrote for you (/buglog file, or xlii buglog export).
+labels: [bug, buglog]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        `/buglog file <id>` in a session fills this in for you (from the next release). From a shell,
+        `xlii buglog export <id>` prints it — secrets redacted; look before you submit.
+  - type: textarea
+    id: report
+    attributes:
+      label: The report
+      description: The buglog export, as xlii wrote it.
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: more
+    attributes:
+      label: Anything it missed
+      description: What you were trying to do, in your words.

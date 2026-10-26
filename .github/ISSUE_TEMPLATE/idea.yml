@@ -1,0 +1,21 @@
+name: An idea or a rough edge
+description: Something xlii should do, or do better.
+labels: [idea]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What you want it to do
+      description: In your words — the job, not the implementation. What would you point it at?
+    validations:
+      required: true
+  - type: textarea
+    id: today
+    attributes:
+      label: What it does today
+      description: What you tried, and where it fell short.
+  - type: input
+    id: version
+    attributes:
+      label: xlii version
+      description: "`xlii --version`"

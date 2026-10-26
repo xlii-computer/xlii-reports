@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: xlii itself (code, releases, docs)
+    url: https://github.com/xlii-computer/xlii
+    about: "pip install xlii — and inside it: /howto, Howie, the doctor."

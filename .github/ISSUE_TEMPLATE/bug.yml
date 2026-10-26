@@ -1,0 +1,44 @@
+name: Something broke
+description: xlii did something wrong, or failed to do something it should.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The fastest report is the one xlii writes: `/buglog` in a session, then
+        `/buglog file <id>`. If you would rather write it yourself, tell us below.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you got.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: xlii version
+      description: "`xlii --version`"
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: Install
+      description: "About (or `xlii doctor`) shows it: stock · alt · dev"
+      options: [stock, alt (changed), dev (a source checkout), not sure]
+  - type: input
+    id: sign
+    attributes:
+      label: Divergence sign and hash (alt installs)
+      description: "e.g. ♑ 3f9a1c — About shows it"
+  - type: dropdown
+    id: brain
+    attributes:
+      label: Home brain
+      options: [xAI (Grok), Anthropic (Claude), Google (Gemini), another provider, local (Ollama), not sure]
+  - type: dropdown
+    id: face
+    attributes:
+      label: Where it happened
+      options: [desktop face, phone (glass), terminal (TUI), inline REPL, phone over XMPP, the radio page, shell command, other]
