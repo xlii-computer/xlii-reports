@@ -1,0 +1,34 @@
+name: A change
+description: A fix or a change you made, with the report xlii wrote (/buglog file <id> --with <path>…).
+labels: [buglog, change]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        `/buglog file <id> --with <path>…` fills this in for you: the report, your change as a diff per file,
+        and where each file belongs in xlii. Secrets are redacted — look before you submit.
+        The maintainers port the change into xlii and run the full gate on it; this issue stays the record of who made it.
+  - type: textarea
+    id: report
+    attributes:
+      label: The report
+      description: The buglog report, with xlii's version and install (stock · alt with its sign · dev).
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: The change
+      description: A diff per file, or the whole file when it is new. Too long for the link? `xlii buglog export <id> --with <path>…` prints it to paste here.
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Where it belongs
+      description: One line per file — its place in xlii (`xlii/stock_tasks/…`, `xlii/stock_plugins/…`).
+  - type: textarea
+    id: more
+    attributes:
+      label: Anything it missed
+      description: What the change is for, in your words.

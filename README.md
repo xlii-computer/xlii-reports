@@ -1,8 +1,7 @@
 # xlii reports
 
 The official place to report what xlii got wrong, ask for what it should do,
-and send changes back: issues and pull requests, from any version of xlii,
-stock or changed.
+and send changes back, from any version of xlii, stock or changed.
 
 xlii itself lives at [xlii-computer/xlii](https://github.com/xlii-computer/xlii)
 (`pip install xlii`). This repo is kept apart on purpose: reports arrive from
@@ -22,7 +21,7 @@ are redacted, and the report says how many spans it took out. On your yes it
 opens this repo's new-issue page with that report filled in, and you press
 Submit under your own GitHub account. xlii sends nothing by itself.
 
-`/buglog file` arrives with the next xlii release. Until then, and from any
+`/buglog file` (and `--with` for a change) arrives with the next xlii release. Until then, and from any
 shell, `xlii buglog export b12` prints the same report to paste here.
 
 ## What a report carries
@@ -37,17 +36,34 @@ shell, `xlii buglog export b12` prints the same report to paste here.
 - **Where it happened, and the home brain.**
 - **The buglog row:** what was said and done, and the evidence xlii kept.
 
-## Pull requests
+## Sending a change
 
-Welcome, especially for the plain-text parts of xlii that anyone can shape:
+A change goes in as an issue, with its report. This repo holds no source:
+the maintainers port every change into xlii, run the full gate on it there,
+and ship it with the next release. The issue stays the record of who made it.
+
+    /buglog file b12 --with ~/.config/xlii/tasks/my-task.toml
+
+adds your change to the report, one diff per file, redacted like the rest:
+
+- a card, task, role, persona or skill you changed in your config is diffed
+  against the stock copy it shadows (a new one goes whole, with the folder it
+  would ship in);
+- a file in a checkout of xlii is diffed against the checkout's `HEAD`;
+- a file inside a pip install goes whole.
+
+It opens this repo's **change** form with the report, the change and where it
+belongs filled in, and you press Submit. A change too long for the link is
+printed by `xlii buglog export b12 --with …` for you to paste.
+
+The plain-text parts of xlii are the easiest to change:
 
 - cards (a plugin is a Markdown file);
 - tasks (TOML);
 - seats and their charters;
 - docs.
 
-A code change against a release is ported into the lab by the maintainers and
-ships with the next release; the pull request stays the record of who made it.
+A pull request is still welcome if you'd rather send one by hand.
 
 Be specific, be kind, and leave secrets out. A report that holds an API key is
 deleted.
